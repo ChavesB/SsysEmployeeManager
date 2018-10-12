@@ -1,8 +1,3 @@
-h1 a {
-    color: #EB6015;
-}
-
-
 h3 {
     color: black;
 }
@@ -15,4 +10,18 @@ h3 {
 
 .post-form input {
     width: 100%;
+}
+
+.top-menu, .top-menu:hover, .top-menu:visited {
+    color: #FC1212;
+    float: right;
+    font-size: 26pt;
+    margin-right: 20px;
+    text-decoration:none;
+}
+
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+    color:  #EB6015;
+    font-size: 36pt;
+    text-decoration: none;
 }

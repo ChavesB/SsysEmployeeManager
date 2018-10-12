@@ -1,15 +1,17 @@
-{% load static %}
+{% load staticfiles %}
 <html>
     <head>
         <title>SSYS Employee Manager</title>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="{% static 'css/employee.css' %}">
     </head>
     <body>
         <div class="page-header">
             <h1><a href="/">SSYS Employee Manager</a></h1>
+            {% if user.is_authenticated %}
+                <a href="{% url 'employeeNew' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+            {% endif %}
         </div>
         <div class="container">
             <div class="row"> 

@@ -1,7 +1,7 @@
 {% extends 'employee/employeeBase.html' %}
 
 {% block content %}
-    <h1>Employee</h1>
+    <h3>Employee</h1>
     <form method="POST" class="post-form">
         {% csrf_token %}
         {{ form.as_p }}

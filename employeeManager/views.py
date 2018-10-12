@@ -11,9 +11,7 @@ def employeeEdit(request, pk):
     if request.method == "POST":
         form = EmployeeForm(request.POST, instance=employee)
         if form.is_valid():
-            employee = form.save(commit=False)
-            employee.save()
-            print("OLA")
+            form.save()
             return redirect('/')
     else:
         form = EmployeeForm(instance=employee)
@@ -23,3 +21,13 @@ def employeeDelete(request, pk):
     employee = Employee.objects.get(idemployee=pk)
     employee.delete()
     return redirect('/')
+
+def employeeNew(request):
+    if request.method == "POST":
+        form = EmployeeForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    else:
+        form = EmployeeForm()
+    return render(request, 'employee/employeeEdit.html', { 'form': form })

@@ -1,3 +1,25 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .models import Employee
+from .forms import EmployeeForm
 
-# Create your views here.
+def employeesList(request):
+    employees = Employee.objects.all()
+    return render(request, 'employee/employeeList.html', { 'employees': employees })
+
+def employeeEdit(request, pk):
+    employee = Employee.objects.get(idemployee=pk)
+    if request.method == "POST":
+        form = EmployeeForm(request.POST, instance=employee)
+        if form.is_valid():
+            employee = form.save(commit=False)
+            employee.save()
+            print("OLA")
+            return redirect('/')
+    else:
+        form = EmployeeForm(instance=employee)
+    return render(request, 'employee/employeeEdit.html', {'form': form })
+
+def employeeDelete(request, pk):
+    employee = Employee.objects.get(idemployee=pk)
+    employee.delete()
+    return redirect('/')

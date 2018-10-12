@@ -1,0 +1,18 @@
+h1 a {
+    color: #EB6015;
+}
+
+
+h3 {
+    color: black;
+}
+
+.page-header {
+    background-color: #000000;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+}
+
+.post-form input {
+    width: 100%;
+}

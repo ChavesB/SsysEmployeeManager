@@ -1,0 +1,27 @@
+{% extends 'employee/employeeBase.html' %}
+
+{% block content %}
+    <h3>List of Employees</h3>
+    <div class="table-responsive">  
+        <table id="mytable" class="table table-bordred table-striped">
+            <thead>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Department</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </thead>
+            <tbody>
+                {% for employee in employees %}
+                    <tr>
+                        <td>{{ employee.name }}</td>
+                        <td>{{ employee.email }}</td>
+                        <td>{{ employee.department }}</td>
+                        <td><a href="{% url 'employeeEdit' pk=employee.idemployee %}"><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></a></td>
+                        <td><a href="{% url 'employeeDelete' pk=employee.idemployee %}"><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></a></td>
+                    </tr>  
+                {% endfor %}
+            </tbody>     
+        </table>
+    </div>
+{% endblock %}

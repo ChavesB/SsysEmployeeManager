@@ -4,6 +4,7 @@ from .models import Employee
 from .forms import EmployeeForm
 import json
 
+#As funções abaixo são de controle do painel do admin. Abaixo estão as funções de listar, adicionar e remover
 def employeesList(request):
     employees = Employee.objects.all()
     return render(request, 'employee/employeeList.html', { 'employees': employees })
@@ -60,5 +61,5 @@ def employeeRemove(request):
             employee = form.save(commit=False)
             employee = Employee.objects.get(name=employee.name, email=employee.email, department=employee.department)
             employee.delete()
-            return JsonResponse({'remove': 'success'})
+            return JsonResponse({'remove': 'success'})          
     return JsonResponse({'remove': 'failed'})

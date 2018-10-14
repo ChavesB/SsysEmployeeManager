@@ -12,6 +12,7 @@ Foi criado a api django com as funcionalidades de listar, adicionar e remover. C
 
 
 --- Para executar a aplicação django ---
+
 Comandos para instalar aplicação (Linux):
 
 -> Criar um ambiente virtual: #$ python3 -m venv myvenv
